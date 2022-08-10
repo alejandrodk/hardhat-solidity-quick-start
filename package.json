@@ -6,7 +6,9 @@
   "author": "Alejandro Barrios <ottoabarriosp@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "REPORT_GAS=true npx hardhat test"
+    "test": "REPORT_GAS=true npx hardhat test",
+    "node": "npx hardhat node",
+    "deploy:localhost": "npx hardhat run --network localhost scripts/deploy.ts"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
