@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { HardhatUserConfig } from "hardhat/config";
+import { HardhatUserConfig, task } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 
 dotenv.config();
@@ -19,5 +19,14 @@ const config: HardhatUserConfig = {
     },
   },
 };
+
+// run this task with: npx hardhat accounts
+task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
+  // You are free to do anything you want in this function.
+  const accounts = await hre.ethers.getSigners();
+  for (const account of accounts) {
+    console.log(account.address);
+  }
+});
 
 export default config;
