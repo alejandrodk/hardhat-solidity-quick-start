@@ -5,6 +5,9 @@
   "repository": "git@github.com:zircon-tech/deploy-from-local-dev-environment-alejandrodk.git",
   "author": "Alejandro Barrios <ottoabarriosp@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "REPORT_GAS=true npx hardhat test"
+  },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
     "@ethersproject/providers": "^5.4.7",
