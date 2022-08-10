@@ -39,4 +39,20 @@ describe("Lock", () => {
       expect(e).to.be.undefined;
     }
   });
+
+  it("Should revert with the right error if called from another account", async () => {
+    const { lock, unlockTime } = await loadFixture(deployOneYearLockFixture);
+    // ethers.getSigners returns an array with all the configured accounts,
+    // by default, deployments and functions calls are done with the first
+    // configured account. The first account always will be the owner.
+    const [owner, notOwner] = await ethers.getSigners();
+
+    // increase the time of the chain to pass the first check
+    await time.increaseTo(unlockTime);
+
+    // use lock.connect() to send a transaction from another account
+    await expect(lock.connect(notOwner).withdraw()).to.be.revertedWith(
+      "You aren't the owner"
+    );
+  });
 });
