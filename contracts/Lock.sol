@@ -4,6 +4,7 @@ pragma solidity ^0.8.9;
 // Import this file to use console.log
 import "hardhat/console.sol";
 
+// Author: @Alejandrodk
 contract Lock {
     uint public unlockTime;
     address payable public owner;
