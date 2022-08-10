@@ -8,7 +8,8 @@
   "scripts": {
     "test": "REPORT_GAS=true npx hardhat test",
     "node": "npx hardhat node",
-    "deploy:localhost": "npx hardhat run --network localhost scripts/deploy.ts"
+    "deploy:localhost": "npx hardhat run --network localhost scripts/deploy.ts",
+    "deploy:goerli": "npx hardhat run scripts/deploy.ts --network goerli"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
